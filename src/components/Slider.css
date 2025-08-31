@@ -1,0 +1,113 @@
+.slider-container {
+  width: 100%;
+  max-width: 400px;
+  padding: 0 15px;
+  transition: var(--transition);
+}
+
+.slider-container:hover {
+  transform: scale(1.02);
+}
+
+.slider-label {
+  display: block;
+  margin-bottom: 12px;
+  font-weight: 600;
+  color: var(--text-color);
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.value-highlight {
+  color: var(--primary-color);
+  font-weight: bold;
+  background: rgba(67, 97, 238, 0.1);
+  padding: 3px 10px;
+  border-radius: 20px;
+  transition: var(--transition);
+}
+
+.value-highlight:hover {
+  background: rgba(67, 97, 238, 0.15);
+  transform: scale(1.05);
+}
+
+.slider-input {
+  width: 100%;
+  height: 8px;
+  appearance: none;
+  -webkit-appearance: none;
+  background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+  background-size: 100% 100%;
+  border-radius: 10px;
+  outline: none;
+  position: relative;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.slider-input::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 8px;
+  cursor: pointer;
+  border-radius: 10px;
+  background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+}
+
+.slider-input::-webkit-slider-thumb {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--card-background);
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 4px 10px rgba(67, 97, 238, 0.3);
+  border: 2px solid var(--primary-color);
+  margin-top: -8px;
+  position: relative;
+  z-index: 2;
+}
+
+.slider-input::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+  box-shadow: 0 6px 15px rgba(67, 97, 238, 0.4);
+  background: white;
+}
+
+.slider-input::-webkit-slider-thumb:active {
+  transform: scale(1.3);
+  box-shadow: 0 8px 20px rgba(67, 97, 238, 0.5);
+}
+
+/* تأثير تدرج لوني على شريط التمرير */
+.slider-input::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  border-radius: 10px;
+  background: var(--primary-color);
+  z-index: 1;
+}
+
+/* تصميم خاص للهواتف */
+@media (max-width: 480px) {
+  .slider-container {
+    max-width: 100%;
+  }
+  
+  .slider-label {
+    font-size: 1.1rem;
+  }
+  
+  .slider-input::-webkit-slider-thumb {
+    width: 22px;
+    height: 22px;
+    margin-top: -7px;
+  }
+}
