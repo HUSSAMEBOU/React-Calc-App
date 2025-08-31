@@ -1,3 +1,4 @@
+// App.js
 import React, { useState, useEffect } from 'react';
 import Box from './components/Box';
 import Slider from './components/Slider';
@@ -6,15 +7,16 @@ import './App.css';
 function App() {
   const [width, setWidth] = useState(500);
   const [height, setHeight] = useState(500);
+  const [hue, setHue] = useState(240); // القيمة الابتدائية (أزرق)
   const [isAnimating, setIsAnimating] = useState(false);
   const area = width * height;
 
-  // تفعيل التأثير عند تغيير الأبعاد
+  // تفعيل التأثير عند تغيير الأبعاد أو اللون
   useEffect(() => {
     setIsAnimating(true);
     const timer = setTimeout(() => setIsAnimating(false), 500);
     return () => clearTimeout(timer);
-  }, [width, height]);
+  }, [width, height, hue]);
 
   return (
     <div className="app-container">
@@ -26,6 +28,7 @@ function App() {
             width={width} 
             height={height} 
             isAnimating={isAnimating}
+            hue={hue} // تمرير صبغة اللون
           />
         </div>
         
@@ -43,6 +46,14 @@ function App() {
             onChange={setHeight} 
             min="100" 
             max="1000" 
+          />
+          <Slider 
+            label="اللون" 
+            value={hue} 
+            onChange={setHue} 
+            min="0" 
+            max="360" 
+            unit="°"
           />
         </div>
         
