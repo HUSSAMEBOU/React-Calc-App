@@ -1,4 +1,3 @@
-// App.js
 import React, { useState, useEffect } from 'react';
 import Box from './components/Box';
 import Slider from './components/Slider';
