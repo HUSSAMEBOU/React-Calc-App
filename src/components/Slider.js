@@ -1,4 +1,3 @@
-// Slider.js
 import React from 'react';
 import './Slider.css';
 
